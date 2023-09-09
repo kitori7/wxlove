@@ -119,6 +119,9 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
+    light_meal = "今天要吃饱饱的，记得吃饭哦~"
+    if week=="星期一" or week=="星期三" :
+        lightMeal = "今天可以稍微吃少一点哦~"
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
     love_month = int(config["love_date"].split("-")[1])
@@ -159,6 +162,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
             },
             "love_day": {
                 "value": love_days,
+                "color": get_color()
+            },
+            "light_meal":{
+                "value": light_meal,
                 "color": get_color()
             },
             "note_en": {
