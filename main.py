@@ -2,6 +2,7 @@ import random
 from time import time, localtime
 import cityinfo
 from requests import get, post
+from datetime import timedelta
 from datetime import datetime, date
 from zhdate import ZhDate
 import sys
