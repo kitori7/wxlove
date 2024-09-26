@@ -128,7 +128,7 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     love_day = int(config["love_date"].split("-")[2])
     love_date = date(love_year, love_month, love_day)
     # 获取在一起的日期差
-    love_days = str(today.__sub__(love_date.__sub__(1))).split(" ")[0]
+    love_days = str((today - love_date + timedelta(days=1)).days)
     # 获取所有生日数据
     birthdays = {}
     for k, v in config.items():
